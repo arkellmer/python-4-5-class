@@ -15,4 +15,3 @@
 message = input("please type your name ").lower()
 print(message)
 print("andrew" in message)
-#added in git
