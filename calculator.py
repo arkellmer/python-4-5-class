@@ -7,9 +7,13 @@ def main():
 
     
     num1, num2, operation = inputs()
-    det_op()
-    check()
-    print_ans()
+    answer = det_op(num1,num2,operation)
+    check1 = check(num1,num2,operation,answer)
+    if check1 == True:
+        print("the work is checked")
+    else:
+        print("the work failed the check")
+    print_ans(num1,num2,operation,answer)
     restart_fn()
 
 
@@ -36,17 +40,23 @@ def inputs():
             print("your operation does not work or is not a symbol")
             inputs()
 
-def det_op(operation):
+def det_op(num1,num2,operation):
     if operation == "+":
-        add()
+        answer = add(num1,num2)
+        print(answer)
     elif operation == "-":
-        subtract()
+        answer = subtract(num1,num2)
+        print(answer)
     elif operation == "*":
-        multiply()
+        answer = multiply(num1,num2)
+        print(answer)
     elif operation == "/":
-        divide()
+        answer = divide(num1,num2)
+        print(answer)
     elif operation == "%":
-        modulus()
+        answer = modulus(num1,num2)
+        print(answer)
+    return answer
                    
 def add(num1,num2):
     answer = num1+num2
@@ -77,25 +87,26 @@ def modulus(num1,num2):
 def check(num1,num2,operation, answer):
                    
     if operation == "+":
-        answer2 = add()
+        answer2 = add(num1,num2)
     elif operation == "-":
-        answer2 = subtract()
+        answer2 = subtract(num1,num2)
     elif operation == "*":
-        answer2 = multiply()
+        answer2 = multiply(num1,num2)
     elif operation == "/":
-        answer2 =  divide()
+        answer2 =  divide(num1,num2)
     elif operation == "%":
-        answer2 = modulus()
+        answer2 = modulus(num1,num2)
     if answer2 == answer:
         check1 = True
     elif answer2 != answer:
         check1 = False
+    return check1
+
+
+
+def print_ans(num1,num2,operation,answer):
+    print (num1,operation,num2,"=", answer)
     
-    
-
-
-
-def print_ans():
     
 
 main()
