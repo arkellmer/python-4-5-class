@@ -18,26 +18,43 @@ lit_lamp = False
 def action():
     action1 = input("Enter an action: ").lower()
 
+    global room
+    global big_map
+    global lamp
+    global matches
+    global small_key
+    global medium_key
+    global large_key
+    global chest
+    global basement
+    global lit_lamp
+
     if action1 == "grab":
-        grab(room, big_map, lamp, matches, small_key, medium_key, large_key)
+        grab()
+        action()
         
     elif action1 == "move":
-        move(basement, lit_lamp)
+        move()
+        action()
 
     elif action1 == "look":
-        look(room)
+        look()
+        action()
         
     elif action1 == "inv" or action1 == "inventory":
-        inv(big_map, lamp, matches, small_key, medium_key, large_key)
+        inv()
+        action()
         
     elif action1 == "map":
-        map1(big_map)
+        map1()
+        action()
         
     elif action1 == "use":
-        use(lamp, matches, small_key, medium_key, large_key, lit_lamp, room, basement, chest)
+        use()
+        action()
 
     elif action1 == "escape":
-        escape(room, large_key)
+        escape()
 
     elif action1 == "restart":
         restart()
@@ -51,7 +68,17 @@ def action():
 
 #################################################################################################################################
 
-def grab(room, big_map, lamp, matches, small_key, medium_key, large_key):
+def grab():
+    global room
+    global big_map
+    global lamp
+    global matches
+    global small_key
+    global medium_key
+    global large_key
+    global chest
+    global basement
+    global lit_lamp
     item = input("enter the item you wish to grab: ").lower()
     
     if item == "big map" or item == "map":
@@ -61,15 +88,12 @@ def grab(room, big_map, lamp, matches, small_key, medium_key, large_key):
             if big_map == False:
                 print("you picked up the big map")
                 big_map = True
-                action()
                 
             elif big_map == True:
                 print("you already have that")
-                action()
                 
         else:
             print("you are not in the correct room")
-            action()
             
     if item == "lamp":
         
@@ -77,17 +101,13 @@ def grab(room, big_map, lamp, matches, small_key, medium_key, large_key):
                 
             if lamp == False:
                 print("you picked up the lamp")
-                lamp1 = True
-                return lamp1
-                action()
+                lamp = True
                 
             elif lamp == True:
                 print("you already have that")
-                action()
                 
         else:
             print("you are not in the correct room")
-            action()
             
     if item == "matches":
         
@@ -96,15 +116,12 @@ def grab(room, big_map, lamp, matches, small_key, medium_key, large_key):
             if matches == False:
                 print("you picked up the matches")
                 matches = True
-                action()
-                
+            
             elif matches == True:
                 print("you already have that")
-                action()
                 
         else:
             print("you are not in the correct room")
-            action()
             
     if item == "small key":
         
@@ -113,15 +130,12 @@ def grab(room, big_map, lamp, matches, small_key, medium_key, large_key):
             if small_key == False:
                 print("you picked up the small key")
                 small_key = True
-                action()
                 
             elif small_key == True:
                 print("you already have that")
-                action()
                 
         else:
             print("you are not in the correct room")
-            action()
             
     if item == "medium key":
         
@@ -130,15 +144,12 @@ def grab(room, big_map, lamp, matches, small_key, medium_key, large_key):
             if medium_key == False:
                 print("you picked up the medium key")
                 medium_key = True
-                action()
                 
             elif medium_key == True:
                 print("you already have that")
-                action()
                 
         else:
             print("you are not in the correct room")
-            action()
                 
             
     if item == "relic":
@@ -146,105 +157,108 @@ def grab(room, big_map, lamp, matches, small_key, medium_key, large_key):
             print("you picked up the relic")
             print("you feel an ominous presence")
             print("you have died.")
-            restart()
+            main()
                 
         else:
             print("you are not in the correct room")
-            action()
             
 ##################################################################################################################################
             
-def move(basement, lit_lamp):
+def move():
+    global room
+    global big_map
+    global lamp
+    global matches
+    global small_key
+    global medium_key
+    global large_key
+    global chest
+    global basement
+    global lit_lamp
     rc = input("which room do you want to move to? ").lower()
 
     if rc == "basement":
     
         if basement == True:
             room = "basement"
-            look(room)
-            action()
+            look()
 
         elif basement == False:
             print("the basement is not unlocked. you need a medium key")
-            action()
 
-    elif rc == "room1" or rc == "room 1":
+    if rc == "room1" or rc == "room 1":
         room = "room1"
-        look(room)
-        action()
+        look()
 
-    elif rc == "room2" or rc == "room 2":
+    if rc == "room2" or rc == "room 2":
         room = "room2"
-        look(room)
-        action()
+        look()
 
-    elif rc == "room3" or rc == "room 3":
+    if rc == "room3" or rc == "room 3":
         room = "room3"
-        look(room)
-        action()
+        look()
 
-    elif rc == "room4" or rc == "room 4":
+    if rc == "room4" or rc == "room 4":
         room = "room4"
-        look(room)
-        action()
+        look()
 
-    elif rc == "attic1" or rc == "attic 1":
+    if rc == "attic1" or rc == "attic 1":
 
         if lit_lamp == True:
             room = "attic1"
-            look(room)
-            action()
-
+            look()
+        
         elif lit_lamp == False:
-            print("the attic is too dark to enter. you need a lamp.")
-            action()
+            print("the attic is too dark to enter. you need a lit lamp.")
 
-    elif rc == "attic2" or rc == "attic 2":
+    if rc == "attic2" or rc == "attic 2":
         
         if lit_lamp == True:
             room = "attic2"
-            look(room)
-            action()
+            look()
 
         elif lit_lamp == False:
-            print("the attic is too dark to enter. you need a lamp.")
-            action()
+            print("the attic is too dark to enter. you need a lit lamp.")
         
 ##################################################################################################################################
 
-def look(room):
+def look():
+    global room
 
     if room == "room1":
         print("You are in room 1. There is an unlit lamp in the corner.")
-        action()
         
-    elif room == "room2":
-        print("You are in room 2. There are some matches on a table.")
-        action()
+    if room == "room2":
+        print("You are in room 2. There are some matches on a table. There is a dark stairway on one side.")
         
-    elif room == "room3":
-        print("You are in room 3. There is a large map here.")
-        action()
+    if room == "room3":
+        print("You are in room 3. There is a large map here. There is also a medium key on the floor. There is a locked door on one side.")
         
-    elif room == "room4":
-        print("You are in room 4. There is a chest in here.")
-        action()
+    if room == "room4":
+        print("You are in room 4. There is a chest in here. There is a dark stairway on one side.")
         
-    elif room == "attic1":
+    if room == "attic1":
         print("You are in attic 1. There is a large locked window.")
-        action()
         
-    elif room == "attic2":
+    if room == "attic2":
         print("You are in attic 2. There is a small key on the floor.")
-        action()
         
-    elif room == "basement1":
+    if room == "basement":
         print("you are in the basement. You feel an ominous precence. There is a large relic in the middle of the room.")
-        action()
-        
+
 ##################################################################################################################################
 
-def inv(big_map, lamp, matches, small_key, medium_key, large_key):
+def inv():
+    global room
+    global big_map
+    global lamp
+    global matches
+    global small_key
+    global medium_key
+    global large_key
+    global chest
+    global basement
+    global lit_lamp
 
     if big_map == True:
         print("You have the big map.")
@@ -264,14 +278,17 @@ def inv(big_map, lamp, matches, small_key, medium_key, large_key):
     if large_key == True:
         print("You have the large key.")
 
-    else:
-        print("You have no items.")
+    if big_map == True and lamp == True and matches == True and small_key == True and medium_key == True and large_key == True:
+        print("You have ALL items.")
 
-    action()
+    if big_map == False and lamp == False and matches == False and small_key == False and medium_key == False and large_key == False:
+        print("You have NO items.")
+
 
 ##################################################################################################################################
     
-def map1(big_map):
+def map1():
+    global big_map
     if big_map == False:
         print("""
  _____________     _____________
@@ -289,7 +306,6 @@ def map1(big_map):
 |             |---|             |
 |_____________|   |_____________|
 """)
-        action()
         
     elif big_map == True:
         print("""
@@ -308,46 +324,71 @@ def map1(big_map):
 |           |---|             |---|             |---|             |
 |___________|   |_____________|   |_____________|   |_____________|
 """)
-        action()
 
 ##################################################################################################################################
     
-def use(lamp, matches, small_key, medium_key, large_key, lit_lamp, room, basement, chest):
+def use():
+    global room
+    global big_map
+    global lamp
+    global matches
+    global small_key
+    global medium_key
+    global large_key
+    global chest
+    global basement
+    global lit_lamp
+    
     useans = input("what would you like to use? ").lower()
 
     if useans == "lamp" or useans == "matches":
         if lamp == True and matches == True:
             lit_lamp = True
             print("you lit your lamp.")
-            action()
-        elif lamp == False or matches == False:
+        
+        elif lamp == False and matches == True:
+            print("you do not have the lamp.")
+            
+        elif lamp == True and matches == False:
+            print("you do not have the matches.")
+            
+        elif lamp == False and matches == False:
             print("you do not have the lamp OR matches.")
-            action()
+            
 
     if useans == "small key":
         if small_key == True and room == "room4" and chest == False:
             print("you open the chest. inside is a large key. you take it.")
             large_key = True
             chest = True
-            action()
+            
         elif small_key == False or room != "room4" or chest == True:
             print("you are not in the correct room or do not have the small key or have already unlocked the chest.")
-            action()
-
+            
     if useans == "medium key":
         if medium_key == True and room == "room3":
             print("you open the door to the basement.")
             basement = True
-            action()
+           
         elif medium_key == False or room != "room3":
             print("you are not in the correct room or do not have the medium key.")
-            action()
+           
         
 
 
 ##################################################################################################################################
     
-def escape(room, large_key):
+def escape():
+    global room
+    global big_map
+    global lamp
+    global matches
+    global small_key
+    global medium_key
+    global large_key
+    global chest
+    global basement
+    global lit_lamp
     if room == "attic1":
 
         if large_key == True:
@@ -366,13 +407,33 @@ def escape(room, large_key):
 ##################################################################################################################################
 
 def restart():
-    ryn = input("would you like to restart or quit? y/n or quit: ").lower()
+    
+    global room
+    global big_map
+    global lamp
+    global matches
+    global small_key
+    global medium_key
+    global large_key
+    global chest
+    global basement
+    global lit_lamp
+    
+    ryn = input("would you like to restart? y/n: ").lower()
     if ryn == "y" or ryn == "yes":
+        room = "room1"
+        big_map = False
+        lamp = False
+        matches = False
+        small_key = False
+        medium_key = False
+        large_key = False
+        chest = False
+        basement = False
+        lit_lamp = False
         main()
     elif ryn == "n" or run == "no":
         action()
-    elif ryn == "quit":
-        print("you have quit the game.")
     else:
         print("The value you entered was not recognized.")
         action()
@@ -385,8 +446,16 @@ def help1():
 
 ##################################################################################################################################
 def main():
-    print("you are in a room by yourself.")
-    help1()
+    global room
+    global big_map
+    global lamp
+    global matches
+    global small_key
+    global medium_key
+    global large_key
+    global chest
+    global basement
+    global lit_lamp
     room = "room1"
     big_map = False
     lamp = False
@@ -397,14 +466,13 @@ def main():
     chest = False
     basement = False
     lit_lamp = False
+    print("you are in a room by yourself.")
+    help1()
     action()
     
 main()
 
-##functions that return values
-##use
-##grab
-##move
+
     
 
 
