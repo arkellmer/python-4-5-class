@@ -1,0 +1,81 @@
+Andrew Kellmer Term 2 Final
+Category: Formatting
+Question: What is the output of the code: print("Hello\nHow are you doing today?")
+1.HelloNHow are you doing today?
+2.Hello\nHow are you doing today?
+3.Hello/How are you doing today?
+4.hello/how are you doing today?
+3
+Explanation: \n is used to enter a new line in a print statement.
+Category: File Handling
+Question: True\False The letter r is used to indicate write in/a file opening. ex. x = open("file","r")
+1. True
+2. False
+3. n\a
+4. n\a
+2
+Explanation: The letter r is used to indicate read in a file opening.
+Category: Functions
+Question: In order to recieve variables from a function,/you must use the ______ command.
+1. Reply
+2. Recover
+3. Rebound
+4. Return
+4
+Explanation: Return is the proper command to output a variable from a function.
+Category: File Handling
+Question: If I do not close a file, what may happen to it?
+1. The file may become corrupted
+2. The file may be posted online
+3. The file may become a virus
+4. The file may blow up the computer
+1
+Explanation: Files may become corrupted when they aren't closed.
+Category: Functions
+Question: What is the proper format for variables in a function?
+1. def function(x y)
+2. def (x,y).function
+3. def function x,y
+4. def function (x,y)
+4
+Explanation: def function(x,y) is the correct format.
+Category: Variables
+Question: Integers contain what value?
+1. numbers and letters
+2. numbers and decimals
+3. numbers and no decimals
+4. only decimals
+3
+Explanation: Integers contain numbers and no decimals.
+Category: Formatting
+Question: What is the output of the following code:/print("abcdef","ghijkl")
+1.abcdefghijkl
+2.abcdef ghijkl
+3.abcdef,ghijkl
+4.lkjihgfedcba
+2
+Explanation: A comma in a print statement adds a space inbetween text.
+Category: For loops
+Question: How many times will for i in range(5): iterate?
+1. 5 times
+2. 4 times
+3. 6 times
+4. 3 times
+1
+Explanation: for i in range(5): will iterate 5 times
+Category: If\Else loops
+Question: True\False an else statement only runs if the previous if statement was false.
+1. True
+2. False
+3. n\a
+4. n\a
+1
+Explanation: An else statement only runs when the previous if statement does not.
+Category: If\Else loops
+Question: What is the output of the following code:/x = 0/if x == 0:/	print("dog")/else:/	print("cat")
+1. Syntax error
+2. dog
+3. cat
+4. Runtime error
+2
+Explanation: The above code will print dog.
