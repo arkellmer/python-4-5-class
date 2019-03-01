@@ -4,6 +4,7 @@
 #get a users name
 
 def get_name(name):
+
     input_name=name
     input_name=input_name.lower()
     input_name=input_name.title()
@@ -64,4 +65,4 @@ def areaOfCircle():
 
 #call the function
 
-#areaOfCircle()
+areaOfCircle()
