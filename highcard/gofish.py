@@ -27,6 +27,7 @@ class GF_Hand(cards.Hand):
     def pair(self):
         for card in self.cards:
             for i in self.cards:
+                pass
                 #checks all other cards in your hand if it is matching.
 
 
