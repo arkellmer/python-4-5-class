@@ -21,10 +21,10 @@ class BJ_Card(cards.Card):
 
 class BJ_Deck(cards.Deck):
 
-    def poplulate(self):
+    def populate(self):
         for suit in BJ_Card.SUITS:
             for rank in BJ_Card.RANKS:
-                self.cards.append(BJ_Card(rank,suit))
+                self.cards.append(BJ_Card(rank, suit))
 
 class BJ_Hand(cards.Hand):
 
@@ -110,7 +110,7 @@ class BJ_Game(object):
         self.dealer = BJ_Dealer("Dealer Frank")
 
         self.deck = BJ_Deck()
-        self.deck.poplulate()
+        self.deck.populate()
         self.deck.shuffle()
 
     @property
