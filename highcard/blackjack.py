@@ -164,7 +164,7 @@ class BJ_Game(object):
             for player in self.still_playing:
                 if player.total > self.dealer.total:
                     player.win()
-                elif player.total < self.dealer.total:\
+                elif player.total < self.dealer.total:
                     player.lose()
                 else:
                     player.push()
