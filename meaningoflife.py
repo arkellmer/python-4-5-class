@@ -9,12 +9,15 @@ class Application(Frame):
         self.create_widgets()
 
     def create_widgets(self):
+
         #create instruction label
         self.inst_lbl = Label(self, text="enter password for the secret life")
         self.inst_lbl.grid(row=0, column=0, columnspan=2, sticky = W)
+
         #create label for password
         self.pw_lbl = Label(self, text= "Password:")
         self.pw_lbl.grid(row=1,column=0, sticky = W)
+
         #create input box for password
         self.pw_ent = Entry(self)
         self.pw_ent.grid(row= 1, column=1, sticky=W)
